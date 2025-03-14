@@ -1,0 +1,63 @@
+/* Recent Updates Container */
+.recent-update-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Recent Updates Section */
+  .recent-update-section {
+    background: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recent-update-section h2 {
+    color: #1a5b6d; /* Navy blue heading */
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .recent-update-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recent-update-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #1a2b6d; /* Navy blue text */
+  }
+  
+  .recent-update-list li a {
+    color: #2b7a8e; /* Slightly lighter navy blue for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .recent-update-list li a:hover {
+    color: #1a5b6d; /* Darker navy blue on hover */
+  }
+  
+  .recent-update-list li span {
+    color: #4a5b8d; /* Lighter navy blue for dates */
+    font-size: 14px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .recent-update-list li {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .recent-update-list li span {
+      margin-top: 4px;
+    }
+  }

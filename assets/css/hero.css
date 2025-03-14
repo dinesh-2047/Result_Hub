@@ -1,0 +1,448 @@
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #6b48ff, #ff6f61); /* Match navbar gradient end */
+    color: #fff;
+    min-height: calc(100vh - 75px + 20px); /* Increased height by 20px, adjusted for body padding */
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 1; /* Below navbar z-index 1000 */
+}
+
+/* Animated Heading and Subheading */
+.hero-section h1, .hero-section p {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 2.5s;
+    margin-top: 20px;
+}
+
+.hero-section h1 {
+    font-size: clamp(2rem, 6vw, 4rem); /* Original size for mobile */
+    font-weight: 700;
+    word-spacing: 0.3rem; /* Added word spacing */
+}
+
+.hero-section p {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Original size for mobile */
+    margin: 15px 0;
+    animation-delay: 3s;
+    word-spacing: 0.2rem; /* Added word spacing */
+}
+
+.text-wrapper span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.1s ease forwards;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: clamp(10px, 2vw, 15px) clamp(30px, 5vw, 50px); /* Original size for mobile */
+    background: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem); /* Original size for mobile */
+    font-weight: 700;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards 3.5s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 111, 97, 0.8);
+}
+
+/* Portal Container */
+.portal-container {
+    position: relative;
+    width: clamp(300px, 40vw, 600px); /* Original size for mobile */
+    height: clamp(250px, 35vw, 500px); /* Original size for mobile */
+    margin-bottom: 30px;
+}
+
+.portal-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 6px solid #fff; /* Original size for mobile */
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    animation: expandRing 2s ease forwards;
+    box-shadow: 0 0 20px #fff;
+}
+
+.portal-ring:nth-child(2) {
+    animation-delay: 0.3s;
+    border-color: #ffeb3b;
+}
+
+/* Logo and Cards Container */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Original size for mobile */
+    font-family: 'Exo 2', sans-serif;
+}
+
+.logo-image {
+    width: clamp(80px, 15vw, 150px); /* Original size for mobile */
+    height: auto;
+    opacity: 0;
+    transform: translateY(-100px);
+    animation: dropIn 1s ease forwards 0.5s;
+}
+
+.logo-text {
+    display: flex;
+    gap: 0.5rem; /* Original size for mobile */
+}
+
+.logo-letter {
+    font-size: clamp(2rem, 8vw, 5rem)px; /* Original size for mobile */
+    font-weight: 700;
+    color: #ffeb3b;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: riseAndGlow 1.5s ease forwards;
+    text-shadow: 0 0 10px #ffeb3b;
+}
+
+.logo-letter:nth-child(1) { animation-delay: 1s; }
+.logo-letter:nth-child(2) { animation-delay: 1.1s; }
+.logo-letter:nth-child(3) { animation-delay: 1.2s; }
+.logo-letter:nth-child(4) { animation-delay: 1.3s; }
+.logo-letter:nth-child(5) { animation-delay: 1.4s; }
+.logo-letter:nth-child(6) { animation-delay: 1.5s; }
+
+/* Animated Cards */
+.result-cards {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(15px, 3vw, 30px); /* Original size for mobile */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.card {
+    width: clamp(150px, 25vw, 300px); /* Original size for mobile */
+    height: clamp(100px, 18vw, 200px); /* Original size for mobile */
+    opacity: 0;
+    transform: translateX(100vw);
+    animation: slideIn 1s ease forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 1.5s;
+    transform: translateX(-100vw);
+}
+
+.card:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 2.1s;
+    transform: translateX(100vw);
+}
+
+/* Emoji Rain */
+.emoji-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.emoji {
+    position: absolute;
+    font-size: clamp(1rem, 3vw, 2rem); /* Original size for mobile */
+    opacity: 0.7;
+    animation: rain 5s linear infinite;
+}
+
+/* Particle Background */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="90" cy="20" r="2" fill="rgba(255,235,59,0.3)"/><circle cx="50" cy="80" r="1" fill="rgba(255,111,97,0.3)"/></svg>');
+    background-size: 50px; /* Original size for mobile */
+    animation: particleMove 20s infinite linear;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+
+
+
+/* Word and Character Spacing */
+.word {
+    display: inline-block;
+    margin-right: 0.5rem; /* Spacing between words */
+}
+
+.word:last-child {
+    margin-right: 0; /* Remove margin for the last word */
+}
+
+.text-wrapper span.char {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.1s ease forwards;
+}
+
+/* Desktop Adjustments (min-width: 1024px) */
+@media (min-width: 1024px) {
+
+    
+    .word {
+        margin-right: 0.4rem; /* Slightly less spacing on desktop */
+        margin-top: 10px;
+    }
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 1024px) {
+    .word {
+        margin-right: 0.5rem; /* Maintain spacing */
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .hero-section p {
+        padding: 4px 12px; /* Adjusted padding for smaller screens */
+    }
+    .word {
+        margin-right: 0.4rem; /* Slightly less spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        padding: 6px 10px; /* Further adjusted padding */
+    }
+    .hero-section p {
+        padding: 3px 8px; /* Further adjusted padding */
+    }
+    .word {
+        margin-right: 0.3rem; /* Minimal spacing for small screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expandRing {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: scale(2); }
+}
+
+@keyframes riseAndGlow {
+    0% { opacity: 0; transform: translateY(100px); }
+    100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 20px #ffeb3b; }
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rain {
+    0% { opacity: 0.7; transform: translateY(-100vh); }
+    100% { opacity: 0; transform: translateY(100vh); }
+}
+
+@keyframes particleMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+@keyframes letterReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dropIn {
+    0% { opacity: 0; transform: translateY(-100px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Desktop Adjustments (min-width: 1024px) - Reduced Sizes */
+/* [Previous CSS remains unchanged until the desktop media query] */
+
+/* Desktop Adjustments (min-width: 1024px) - Further Reduced Sizes */
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 8px; /* Reduced from 10px */
+    }
+    
+    .portal-container {
+        width: clamp(150px, 20vw, 300px); /* Reduced from 180px-350px */
+        height: clamp(120px, 15vw, 250px); /* Reduced from 150px-300px */
+        margin-bottom: 15px; /* Reduced from 20px */
+    }
+    
+    .hero-section h1 {
+        font-size: clamp(1rem, 3vw, 2rem); /* Reduced from 1.2rem-2.5rem */
+        word-spacing: 0.3rem; /* Slightly reduced */
+    }
+    
+    .hero-section p {
+        font-size: clamp(0.6rem, 1.5vw, 0.9rem); /* Reduced from 0.7rem-1rem */
+        word-spacing: 0.2rem; /* Slightly reduced */
+    }
+    
+    .cta-button {
+        padding: clamp(5px, 1vw, 8px) clamp(15px, 3vw, 30px); /* Reduced from 6px-10px, 18px-35px */
+        font-size: clamp(0.7rem, 1.5vw, 0.9rem); /* Reduced from 0.8rem-1rem */
+        box-shadow: 0 0 12px rgba(255, 111, 97, 0.5); /* Reduced from 15px */
+    }
+    
+    .cta-button:hover {
+        box-shadow: 0 0 20px rgba(255, 111, 97, 0.8); /* Reduced from 25px */
+    }
+    
+    .logo-letter {
+        font-size: clamp(1rem, 4vw, 3rem); /* Reduced from 1.2rem-3.5rem */
+        text-shadow: 0 0 6px #ffeb3b; /* Reduced from 8px */
+    }
+    
+    .logo-image {
+        width: clamp(40px, 8vw, 80px); /* Reduced from 50px-100px */
+        transform: translateY(-60px); /* Reduced from -80px */
+    }
+    
+    @keyframes dropIn {
+        0% { opacity: 0; transform: translateY(-60px); } /* Match reduced translateY */
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+        width: clamp(80px, 15vw, 160px); /* Reduced from 100px-200px */
+        height: clamp(50px, 10vw, 100px); /* Reduced from 70px-140px */
+    }
+    
+    .result-cards {
+        gap: clamp(6px, 1.5vw, 15px); /* Reduced from 8px-18px */
+    }
+    
+    .emoji {
+        font-size: clamp(0.6rem, 1.5vw, 1.2rem); /* Reduced from 0.8rem-1.5rem */
+    }
+    
+    .particles {
+        background-size: 30px; /* Reduced from 40px */
+    }
+    
+    @keyframes particleMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 60px 60px; } /* Reduced from 80px */
+    }
+    
+    .word {
+        margin-right: 0.3rem; /* Reduced from 0.4rem */
+        margin-top: 8px; /* Reduced from 10px */
+    }
+}
+
+/* [Rest of the CSS remains unchanged] */
+
+/* Responsive Adjustments for Smaller Screens (Unchanged) */
+@media (max-width: 1024px) {
+    .portal-container {
+        width: clamp(250px, 35vw, 500px);
+        height: clamp(200px, 30vw, 400px);
+    }
+    .logo-letter {
+        font-size: clamp(1.5rem, 6vw, 4rem);
+    }
+    .card {
+        width: clamp(120px, 22vw, 240px);
+        height: clamp(80px, 15vw, 160px);
+    }
+    .result-cards {
+        gap: clamp(10px, 2vw, 20px);
+    }
+    .logo-image {
+        width: clamp(60px, 12vw, 120px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 15px;
+    }
+    .portal-container {
+        width: clamp(200px, 30vw, 400px);
+        height: clamp(180px, 25vw, 350px);
+    }
+    .logo-letter {
+        font-size: clamp(1.2rem, 5vw, 3rem);
+    }
+    .card {
+        width: clamp(100px, 18vw, 200px);
+        height: clamp(70px, 12vw, 140px);
+    }
+    .result-cards {
+        gap: clamp(8px, 1.5vw, 15px);
+    }
+    .logo-image {
+        width: clamp(50px, 10vw, 100px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 10px;
+    }
+    .portal-container {
+        width: clamp(150px, 25vw, 300px);
+        height: clamp(130px, 20vw, 250px);
+    }
+    .logo-letter {
+        font-size: clamp(1rem, 4vw, 2rem);
+    }
+    .card {
+        width: clamp(80px, 15vw, 160px);
+        height: clamp(55px, 10vw, 110px);
+    }
+    .result-cards {
+        gap: clamp(5px, 1vw, 10px);
+    }
+    .emoji {
+        font-size: clamp(0.8rem, 2vw, 1.5rem);
+    }
+    .logo-image {
+        width: clamp(40px, 8vw, 80px);
+    }
+}
