@@ -1,8 +1,0 @@
-{
-    "rewrites": [
-      {
-        "source": "/btech-cse",
-        "destination": "/assets/html/btech-cse.html"
-      }
-    ]
-  }
