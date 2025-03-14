@@ -136,9 +136,9 @@ function searchResult() {
 
 
 
-//To handle url 
-// Check if the current URL matches the one you want to rewrite
-if (window.location.pathname === '/assets/html/btech-cse.html') {
-    // Rewrite the URL to a cleaner version
-    window.history.replaceState(null, document.title, '/btech-cse');
-  }
+// //To handle url 
+// // Check if the current URL matches the one you want to rewrite
+// if (window.location.pathname === '/assets/html/btech-cse.html') {
+//     // Rewrite the URL to a cleaner version
+//     window.history.replaceState(null, document.title, '/btech-cse');
+//   }
