@@ -22,7 +22,7 @@ let resultsData = [];
 async function loadCSV(year, semester) {
     try {
         // Construct the dynamic CSV file path based on year and semester
-        const filePath = `../csvs/btech-cse/results_${year}_sem${semester}.csv`;
+        const filePath = `/assets/csvs/btech-cse/results_${year}_sem${semester}.csv`;
         const response = await fetch(filePath);
         
         // Check if the response is OK (e.g., file exists)
