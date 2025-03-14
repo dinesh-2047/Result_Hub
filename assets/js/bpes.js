@@ -22,7 +22,7 @@ let resultsData = [];
 async function loadCSV(year, semester) {
     try {
         // Construct the dynamic CSV file path based on year and semester
-        const filePath = `../csvs/bpes/results_${year}_sem${semester}.csv`;
+        const filePath = `/assets/csvs/bpes/results_${year}_sem${semester}.csv`;
         const response = await fetch(filePath);
         
         // Check if the response is OK (e.g., file exists)
@@ -128,3 +128,10 @@ function searchResult() {
 
 // No initial load of CSV on page load
 // loadCSV('2024', '3'); // Removed
+
+
+
+//for handling url 
+if (window.location.pathname === '/assets/html/bpes.html') {
+    window.history.replaceState(null, document.title, '/bpes');
+  }
