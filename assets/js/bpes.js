@@ -131,7 +131,3 @@ function searchResult() {
 
 
 
-//for handling url 
-if (window.location.pathname === '/assets/html/bpes.html') {
-    window.history.replaceState(null, document.title, '/bpes');
-  }

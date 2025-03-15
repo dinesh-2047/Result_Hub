@@ -132,9 +132,7 @@ function searchResult() {
 // loadCSV('2024', '3'); // Removed
 
 
-// if (window.location.pathname === '/assets/html/btech-cse.html') {
-//     window.history.replaceState(null, document.title, '/btech-cse');
-//   }
+
 
 
 

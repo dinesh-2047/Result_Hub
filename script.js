@@ -172,9 +172,3 @@ if (ctaButton) {
 
 
 
-//To handle url 
-// Check if the current URL matches the one you want to rewrite
-if (window.location.pathname === '/index.html') {
-    // Rewrite the URL to a cleaner version
-    window.history.replaceState(null, document.title, '/');
-  }
