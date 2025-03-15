@@ -4,6 +4,13 @@
         "source": "/result/:slug",
         "destination": "/assets/html/:slug.html"
       }
+    ],
+    "redirects": [
+      {
+        "source": "/assets/html/:slug.html",
+        "destination": "/result/:slug",
+        "permanent": true
+      }
     ]
   }
   
