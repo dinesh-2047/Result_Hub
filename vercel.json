@@ -11,6 +11,11 @@
     ],
     "redirects": [
       {
+        "source": "/index.html",
+        "destination": "/",
+        "permanent": true
+      },
+      {
         "source": "/assets/html/:slug.html",
         "destination": "/result/:slug",
         "permanent": true
