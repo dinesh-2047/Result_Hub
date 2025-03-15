@@ -1,6 +1,10 @@
 {
     "rewrites": [
       {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/result/:slug",
         "destination": "/assets/html/:slug.html"
       }
