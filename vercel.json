@@ -1,21 +1,24 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/index.html" },
-      { "source": "/result/:slug", "destination": "/assets/html/:slug.html" }
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/result/:slug",
+        "destination": "/assets/html/:slug.html"
+      }
     ],
     "redirects": [
-      { "source": "/index.html", "destination": "/", "permanent": true },
-      { "source": "/assets/html/:slug.html", "destination": "/result/:slug", "permanent": true },
-      { "source": "/assets/csvs/:path*", "destination": "/403", "status": 403 }
-    ],
-    "headers": [
       {
-        "source": "/assets/csvs/:path*",
-        "headers": [
-          { "key": "X-Content-Type-Options", "value": "nosniff" },
-          { "key": "X-Frame-Options", "value": "DENY" },
-          { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-        ]
+        "source": "/index.html",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/assets/html/:slug.html",
+        "destination": "/result/:slug",
+        "permanent": true
       }
     ]
   }
