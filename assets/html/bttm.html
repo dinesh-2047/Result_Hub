@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTTM Result </title>
+    <link rel="stylesheet" href="/assets/css/bttm.css">
+    <link rel="stylesheet" href="/assets/css/loader.css">
+
+</head>
+<body>
+
+   
+  
+
+    <!-- Particle Background -->
+    <div id="particles"></div>
+
+
+
+    <!-- Navbar  -->
+    <nav class="navbar">
+        <div class="nav-logo">
+           <a href="/index.html"><img src="https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-results-miscellaneous-round-ink-vector-png-image_18961134.png" alt="Logo"></a> 
+        </div>
+        <div class="nav-content">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/index.html#recent-updates" class="nav-link">Recent Updates</a></li>
+                <li class="nav-item"><a href="/index.html#courses-section" class="nav-link">Results</a></li>
+                <li class="nav-item"><a href="/index.html#footer" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="mobile-container">
+                <div class="menu-toggle">☰</div>
+                <div class="dark-mode-toggle" id="darkModeToggle"> <!-- Added ID -->
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="overlay"></div>
+
+    <!-- Result Section -->
+    <div class="result-container">
+        <h1>BTTM Results</h1>
+        <div class="search-form">
+            <input type="text" id="roll-no" placeholder="Enter Roll Number" required>
+
+            <select id="semester" class="dropdown" required>
+                <option value="" disabled selected>Select Semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+               
+            </select>
+
+            <select id="year" class="dropdown" required>
+                <option value="" disabled selected>Select Examination Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+            </select>
+
+
+            <button class="search-btn" onclick="searchResult()">Search</button>
+        </div>
+
+        <!-- Result Display -->
+        <div id="result-display" class="result-box">
+            <p>Enter roll number and select details above, then click Search to view results.</p>
+        </div>
+    </div>
+
+  <script src="/script.js"></script>
+  <script src="/assets/js/bttm.js"></script>
+  <script src="/assets/js/loader.js"></script>
+</body>
+</html>
