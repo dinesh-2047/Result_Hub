@@ -16,16 +16,13 @@ for (let i = 0; i < 20; i++) {
 
 
 
-// Load and parse CSV file
 let resultsData = [];
 
 async function loadCSV(year, semester) {
     try {
-        // Construct the dynamic CSV file path based on year and semester
         const filePath = `/assets/csvs/btech-cse/results_${year}_sem${semester}.csv`;
         const response = await fetch(filePath);
         
-        // Check if the response is OK (e.g., file exists)
         if (!response.ok) {
             throw new Error(`CSV file not found for ${year}, Semester ${semester}`);
         }
@@ -35,7 +32,7 @@ async function loadCSV(year, semester) {
     } catch (error) {
         console.error('Error loading CSV:', error.message);
         document.getElementById('result-display').innerHTML = `<p>Error loading results for ${year}, Semester ${semester}. Please ensure the file exists or try again later.</p>`;
-        resultsData = []; // Reset resultsData on error
+        resultsData = [];
     }
 }
 
@@ -55,7 +52,6 @@ function parseCSV(csvText) {
     return data;
 }
 
-// Helper function to determine subject status
 function getSubjectDisplay(subjectCode, score) {
     if (score.toUpperCase() === 'F') {
         return `<span>${subjectCode}</span><span class="failed">F</span>`;
@@ -63,7 +59,17 @@ function getSubjectDisplay(subjectCode, score) {
     return `<span>${subjectCode}</span><span>${score || 'N/A'}</span>`;
 }
 
-// Search Result Function
+// Define subject codes and total credits for each semester
+const semesterDetails = {
+    '1': { subjects: ['AEC010', 'CE101', 'CSE111', 'CSE113', 'ME105', 'PHY107', 'PHY115', 'PT101', 'PT103', 'PT105', 'VAC022'], totalCredits: '20.00' },
+    '3': { subjects: ['CSE251', 'CSE253', 'CSE255', 'CSE257', 'CSE259', 'CSE261', 'EE217', 'EE223', 'ENG205', 'MAT253'], totalCredits: '25.00' }
+    
+};
+
+function getSemesterDetails(semester) {
+    return semesterDetails[semester] || { subjects: [], totalCredits: 'N/A' };
+}
+
 function searchResult() {
     const rollNo = document.getElementById('roll-no').value.trim();
     const semester = document.getElementById('semester').value;
@@ -76,13 +82,9 @@ function searchResult() {
         return;
     }
 
-    // Reset resultsData if the year or semester has changed
-    // This ensures we load the correct CSV file
     resultDisplay.innerHTML = `<p>Loading results for ${year}, Semester ${semester}, please wait...</p>`;
     loadCSV(year, semester).then(() => {
-        // After loading, check if data exists and search for the result
         if (resultsData.length === 0) {
-            // Error message is already set by loadCSV in case of failure
             return;
         }
 
@@ -90,31 +92,27 @@ function searchResult() {
 
         if (result) {
             const isRP = result['Remarks'].includes('RP');
+            const { subjects, totalCredits } = getSemesterDetails(semester);
+            const subjectItems = subjects.map(subject => 
+                `<div class="subject-item">${getSubjectDisplay(subject, result[subject])}</div>`
+            ).join('');
+
             resultDisplay.innerHTML = `
                 <div class="result-wrapper">
                     <div class="result-meta">
                         <p><strong>Result Type:</strong> Regular</p>
                         <p><strong>Programme:</strong> UG</p>
-                        <p><strong>Total Credits for the Semester:</strong> 25.00</p>
+                        <p><strong>Total Credits for the Semester:</strong> ${totalCredits}</p>
                     </div>
                     <div class="result-card">
                         <div class="result-header">${result['Student Name']}'s Result</div>
                         <div class="result-details">
                             <div class="detail-row"><span>Roll No</span><span>${result['Roll No']}</span></div>
                             <div class="detail-row"><span>Father Name</span><span>${result['Father Name']}</span></div>
-                            <div class="detail-row"><span>Total Credit Point Earned </span><span>${result['TOTAL CREDIT POINT EARNED (B)']}</span></div>
+                            <div class="detail-row"><span>Total Credit Point Earned</span><span>${result['TOTAL CREDIT POINT EARNED (B)']}</span></div>
                             <div class="detail-row"><span>Semester CGPA</span><span>${result['SEMESTER CREDIT POINT AVERAGE (B/A)']}</span></div>
                             <div class="subject-orbit">
-                                <div class="subject-item">${getSubjectDisplay('CSE251', result['CSE251'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('CSE253', result['CSE253'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('CSE255', result['CSE255'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('CSE257', result['CSE257'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('CSE259', result['CSE259'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('CSE261', result['CSE261'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('EE217', result['EE217'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('EE223', result['EE223'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('ENG205', result['ENG205'])}</div>
-                                <div class="subject-item">${getSubjectDisplay('MAT253', result['MAT253'])}</div>
+                                ${subjectItems}
                             </div>
                             <div class="remarks ${isRP ? 'rp' : ''}">${result['Remarks']}</div>
                         </div>
@@ -127,12 +125,3 @@ function searchResult() {
         resultDisplay.style.animation = 'zoomIn 0.5s ease-out';
     });
 }
-
-// No initial load of CSV on page load
-// loadCSV('2024', '3'); // Removed
-
-
-
-
-
-
