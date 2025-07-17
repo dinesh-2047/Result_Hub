@@ -62,7 +62,9 @@ function getSubjectDisplay(subjectCode, score) {
 // Define subject codes and total credits for each semester
 const semesterDetails = {
     '1': { subjects: ['AEC010', 'CE101', 'CSE111', 'CSE113', 'ME105', 'PHY107', 'PHY115', 'PT101', 'PT103', 'PT105', 'VAC022'], totalCredits: '20.00' },
-    '3': { subjects: ['CSE251', 'CSE253', 'CSE255', 'CSE257', 'CSE259', 'CSE261', 'EE217', 'EE223', 'ENG205', 'MAT253'], totalCredits: '25.00' }
+    '3': { subjects: ['CSE251', 'CSE253', 'CSE255', 'CSE257', 'CSE259', 'CSE261', 'EE217', 'EE223', 'ENG205', 'MAT253'], totalCredits: '25.00' },
+    '4': { subjects: ['CSE254', 'CSE256', 'CSE260', 'CSE262', 'EVS002', 'MAT212', 'MGT007', 'PT202', 'PT204', 'PT206', 'SSC007'], totalCredits: '22.00' },
+    
     
 };
 
