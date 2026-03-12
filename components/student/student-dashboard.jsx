@@ -107,7 +107,6 @@ export function StudentDashboard() {
         <div>
           <span className="eyebrow">Student Panel</span>
           <h1 className="dashboard-title">{profile.name || 'Student Dashboard'}</h1>
-          <p className="page-intro">Review semester results here. Account details and password settings are now on a separate profile page.</p>
         </div>
         <div className="student-hero__stats">
           <div className="metric-card metric-card--course">
