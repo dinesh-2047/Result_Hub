@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import { SiteShell } from '@/components/site/site-shell';
 import { PublicResultsExplorer } from '@/components/results/public-results-explorer';
 import { PublicResultsLookup } from '@/components/results/public-results-lookup';
+import { ResultsLookupSkeleton } from '@/components/shared/site/loading-skeletons';
 
 export default function ResultsPage() {
   return (
@@ -18,7 +20,9 @@ export default function ResultsPage() {
           </div>
         </section>
 
-        <PublicResultsLookup title="Result Lookup" showHistory />
+        <Suspense fallback={<ResultsLookupSkeleton />}>
+          <PublicResultsLookup title="Result Lookup" showHistory />
+        </Suspense>
         <PublicResultsExplorer />
       </main>
     </SiteShell>
