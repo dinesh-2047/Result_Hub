@@ -1604,7 +1604,7 @@ img { max-width: 100%; display: block; }
 
 .semester-selector-card {
   display: inline-flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 0.75rem;
   padding: 0.875rem 1rem;
   border: 1px solid var(--line);
