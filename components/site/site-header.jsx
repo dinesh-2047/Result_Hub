@@ -36,57 +36,60 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-shell">
         <div className="site-header__bar">
-        <Link href="/" className="brand" onClick={() => setMenuOpen(false)}>
-          <span className="brand__mark">R</span>
-          <span className="brand__text">
-            <span className="brand__name">Result Portal</span>
-            <span className="brand__sub">Campus Result Hub</span>
-          </span>
-        </Link>
+          <Link href="/" className="brand" onClick={() => setMenuOpen(false)}>
+            <span className="brand__mark">R</span>
+            <span className="brand__text">
+              <span className="brand__name">Result Portal</span>
+              <span className="brand__sub">Campus Result Hub</span>
+            </span>
+          </Link>
 
-        <nav className={`site-nav${menuOpen ? ' open' : ''}`}>
-          <div className="site-nav__links">
-            <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link href="/results" onClick={() => setMenuOpen(false)}>Results</Link>
-            <Link href="/wall-of-toppers" onClick={() => setMenuOpen(false)}>Toppers</Link>
-            <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-            <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          <nav className={`site-nav${menuOpen ? ' open' : ''}`}>
+            <div className="site-nav__links">
+              <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+              <Link href="/results" onClick={() => setMenuOpen(false)}>Results</Link>
+              <Link href="/wall-of-toppers" onClick={() => setMenuOpen(false)}>Toppers</Link>
+              <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+            </div>
+
+            <div className="nav-action-group">
+              <ThemeToggle className="theme-toggle--desktop" />
+              {authUser ? (
+                <>
+                  <Link href={dashboardHref} className="ghost-button" onClick={() => setMenuOpen(false)}>
+                    Dashboard
+                  </Link>
+                  <Link href="/profile" className="profile-link" onClick={() => setMenuOpen(false)}>
+                    <span className="profile-link__icon"><CircleUserRound size={18} /></span>
+                    <span>{authUser.name || 'Profile'}</span>
+                  </Link>
+                  <button className="ghost-button" type="button" onClick={handleLogout}>
+                    <LogOut size={16} />
+                    <span>Logout</span>
+                  </button>
+                </>
+              ) : !authChecked ? (
+                <HeaderActionsSkeleton />
+              ) : authChecked ? (
+                <Link href="/sign-in" className="primary-button" onClick={() => setMenuOpen(false)}>
+                  Sign In
+                </Link>
+              ) : null}
+            </div>
+          </nav>
+
+          <div className="site-header__mobile-controls">
+            <ThemeToggle className="theme-toggle--mobile" />
+            <button
+              className="mobile-toggle"
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
-
-          <div className="nav-action-group">
-            <ThemeToggle />
-            {authUser ? (
-              <>
-              <Link href={dashboardHref} className="ghost-button" onClick={() => setMenuOpen(false)}>
-                Dashboard
-              </Link>
-              <Link href="/profile" className="profile-link" onClick={() => setMenuOpen(false)}>
-                <span className="profile-link__icon"><CircleUserRound size={18} /></span>
-                <span>{authUser.name || 'Profile'}</span>
-              </Link>
-              <button className="ghost-button" type="button" onClick={handleLogout}>
-                <LogOut size={16} />
-                <span>Logout</span>
-              </button>
-              </>
-            ) : !authChecked ? (
-              <HeaderActionsSkeleton />
-            ) : authChecked ? (
-              <Link href="/sign-in" className="primary-button" onClick={() => setMenuOpen(false)}>
-                Sign In
-              </Link>
-            ) : null}
-          </div>
-        </nav>
-
-        <button
-          className="mobile-toggle"
-          type="button"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
         </div>
       </div>
     </header>

@@ -4,7 +4,10 @@ export function SiteFooter() {
   return (
     <footer className="footer">
       <div className="site-shell footer__inner">
-        <span>&copy; {new Date().getFullYear()} Campus Result Hub</span>
+        <div className="footer__meta">
+          <span>&copy; {new Date().getFullYear()} Campus Result Hub</span>
+          <span className="footer__badge">No clutter. Just results.</span>
+        </div>
         <nav className="footer__links">
           <Link href="/">Home</Link>
           <Link href="/results">Results</Link>

@@ -39,11 +39,11 @@ export function SignInForm() {
   }
 
   return (
-    <div className="surface" style={{ maxWidth: 440, margin: '0 auto' }}>
-      <h1 className="page-title" style={{ textAlign: 'center' }}>Sign In</h1>
-      <p className="muted" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Use your email or roll number to access your account</p>
+    <div className="surface auth-card">
+      <h1 className="page-title auth-card__title">Sign In</h1>
+      <p className="muted auth-card__subtitle">Use your email or roll number to access your account</p>
 
-      <form onSubmit={submitForm} style={{ display: 'grid', gap: '1rem' }}>
+      <form onSubmit={submitForm} className="form-grid auth-card__form">
         <label className="field">
           <span>Email or Roll Number</span>
           <input type="text" name="identifier" value={form.identifier} onChange={updateField} placeholder="you@example.com or 23002001" required />
@@ -52,12 +52,12 @@ export function SignInForm() {
           <span>Password</span>
           <input type="password" name="password" value={form.password} onChange={updateField} placeholder="••••••••" required />
         </label>
-        <button className="primary-button" type="submit" disabled={isPending} style={{ width: '100%' }}>
+        <button className="primary-button auth-card__submit" type="submit" disabled={isPending}>
           {isPending ? 'Signing in...' : 'Sign In'}
         </button>
       </form>
 
-      <p className="muted" style={{ marginTop: '1rem', fontSize: '0.8125rem', textAlign: 'center' }}>
+      <p className="muted auth-card__note">
         Students can sign in with roll number or email. Default password is your roll number.
       </p>
     </div>

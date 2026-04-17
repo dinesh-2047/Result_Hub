@@ -1,17 +1,18 @@
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Archivo_Black, Space_Grotesk } from 'next/font/google';
 import { APP_NAME } from '@/lib/constants';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import '@/app/globals.css';
 
-const displayFont = Plus_Jakarta_Sans({
+const displayFont = Archivo_Black({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['600', '700', '800'],
+  weight: ['400'],
 });
 
-const bodyFont = Inter({
+const bodyFont = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-body',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata = {

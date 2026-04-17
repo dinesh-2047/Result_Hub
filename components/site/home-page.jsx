@@ -42,37 +42,42 @@ export function HomePage() {
     <main className="site-shell">
       {/* ── Hero ── */}
       <section className="hero">
-        <div className="hero__badge fade-in-up">
-          <span className="hero__badge-dot" />
-          Live Results
-        </div>
-        <h1 className="hero__title fade-in-up-delay-1">
-          Your semester results,<br />
-          <span className="hero__title-accent">one search away.</span>
-        </h1>
-        <p className="hero__subtitle fade-in-up-delay-2">
-          Search by roll number, view subject-wise marks, track semester history, and check topper lists.
-        </p>
-        <div className="hero__actions fade-in-up-delay-3">
-          <Link href="/results" className="primary-button">
-            Check Result
-          </Link>
-          <Link href="/sign-in" className="secondary-button">
-            Sign In
-          </Link>
-        </div>
-        <div className="hero__stats fade-in-up-delay-3">
-          <div className="metric-card">
-            <span>Courses</span>
-            <strong>{courses.length}</strong>
+        <div className="hero__inner">
+          <div className="hero__badge fade-in-up">
+            <span className="hero__badge-dot" />
+            Live Results
           </div>
-          <div className="metric-card">
-            <span>Notices</span>
-            <strong>{notices.length}</strong>
+          <h1 className="hero__title fade-in-up-delay-1">
+            Your semester results,<br />
+            <span className="hero__title-accent">one search away.</span>
+          </h1>
+          <p className="hero__subtitle fade-in-up-delay-2">
+            Search by roll number, view subject-wise marks, track semester history, and check topper lists.
+          </p>
+          <div className="hero__tape fade-in-up-delay-2" aria-hidden="true">
+            FAST. CLEAR. VERIFIED. 
           </div>
-          <div className="metric-card">
-            <span>Toppers</span>
-            <strong>{toppers.length}</strong>
+          <div className="hero__actions fade-in-up-delay-3">
+            <Link href="/results" className="primary-button">
+              Check Result
+            </Link>
+            <Link href="/sign-in" className="secondary-button">
+              Sign In
+            </Link>
+          </div>
+          <div className="hero__stats fade-in-up-delay-3">
+            <div className="metric-card">
+              <span>Courses</span>
+              <strong>{courses.length}</strong>
+            </div>
+            <div className="metric-card">
+              <span>Notices</span>
+              <strong>{notices.length}</strong>
+            </div>
+            <div className="metric-card">
+              <span>Toppers</span>
+              <strong>{toppers.length}</strong>
+            </div>
           </div>
         </div>
       </section>
@@ -85,7 +90,7 @@ export function HomePage() {
               {notices.concat(notices).map((notice, i) => (
                 <span className="notice-strip__item" key={`${notice._id}-${i}`}>
                   <span className="notice-strip__dot" />
-                  {notice.title}
+                  {notice.title || notice.summary || 'Important Notice'}
                 </span>
               ))}
             </div>
@@ -131,7 +136,7 @@ export function HomePage() {
               {notices.map((notice) => (
                 <li key={notice._id}>
                   <div className="notice-list-card__row">
-                    <strong>{notice.title}</strong>
+                    <strong>{notice.title || notice.summary || 'Important Notice'}</strong>
                     {notice.isPinned && <span className="status-chip">Pinned</span>}
                   </div>
                   {notice.summary && <div className="muted">{notice.summary}</div>}
@@ -181,9 +186,9 @@ export function HomePage() {
 
       {/* ── CTA ── */}
       <section className="section">
-        <div className="surface" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+        <div className="surface cta-surface">
           <h2 className="section-title">Need Help?</h2>
-          <p className="muted" style={{ margin: '0.5rem 0 1.25rem' }}>
+          <p className="muted cta-surface__copy">
             Reach out for portal support, account issues, or result queries.
           </p>
           <Link href="/contact" className="primary-button">Contact Us</Link>
