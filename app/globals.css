@@ -2118,7 +2118,7 @@ img { max-width: 100%; display: block; }
   --text: #f8f5ff;
   --text-secondary: #dcccf2;
   --muted: #b59fd1;
-  --line: #8f6036;
+  --line: #000000;
   --accent: #59e983;
   --accent-hover: #74f09b;
   --accent-soft: rgba(89, 233, 131, 0.22);
@@ -2128,10 +2128,10 @@ img { max-width: 100%; display: block; }
   --danger: #ff7aa7;
   --danger-soft: rgba(255, 122, 167, 0.24);
   --warning: #9f7dff;
-  --shadow-sm: 2px 2px 0 #34241a, 0 0 0 1px rgba(143, 96, 54, 0.3);
-  --shadow: 4px 4px 0 #34241a, 0 0 0 1px rgba(143, 96, 54, 0.34);
-  --shadow-md: 6px 6px 0 #34241a, 0 0 0 1px rgba(143, 96, 54, 0.38);
-  --shadow-lg: 8px 8px 0 #34241a, 0 0 0 1px rgba(143, 96, 54, 0.42);
+  --shadow-sm: 2px 2px 0 #ececec, 0 0 0 1px rgba(249, 241, 235, 0.911);
+  --shadow: 4px 4px 0 #ffffff, 0 0 0 1px rgba(230, 214, 201, 0.621);
+  --shadow-md: 6px 6px 0 #edeae9, 0 0 0 1px rgba(237, 223, 211, 0.38);
+  --shadow-lg: 8px 8px 0 #ebe8e6, 0 0 0 1px rgba(255, 240, 228, 0.42);
   --neo-panel-a: color-mix(in srgb, #ff6ab8 38%, #1d132a);
   --neo-panel-b: color-mix(in srgb, #ff6ab8 22%, #1a4a40);
   --neo-panel-c: color-mix(in srgb, #ff6ab8 30%, #2a1f45);
